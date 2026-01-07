@@ -16,6 +16,10 @@ app.get('/api/refresh', async (req, res) => {
     } catch (e) { res.status(500).send(e.message); }
 });
 
+app.get('/', (req, res) => {
+  res.send("Trading Backend is Online!");
+});
+
 app.get('/api/fetch-oi', async (req, res) => {
   // Check for a secret key in the headers or query string
   const authHeader = req.headers['authorization'];
