@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
-  "crons": [
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
     {
-      "path": "/api/refresh",
-      "schedule": "0 9 * * 1-5" 
-    },
-    {
-      "path": "/api/fetch-oi",
-      "schedule": "* 9-15 * * 1-5"
+      "source": "/(.*)",
+      "destination": "/api/index.js"
     }
   ]
 }
